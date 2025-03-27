@@ -1,0 +1,20 @@
+# CS4131 ICA 2 Helper Code, AY2025
+## Usage:
+Clone this repository and use it as a starting template!
+## Documentation:
+### Important functional APIs
+#### Notifications
+Make use of ```NotificationComposables.sendNotification(context: Context, title: String, message: String)``` to send a single notification.
+#### PiP
+Make use of ```PictureInPictureComposables.VideoScreen(videoID: Int)``` to show a video frame and a button to switch into PiP mode. ```videoID``` refers to the ```R.raw.<video_name>``` value.
+#### **Speech** to Text
+Make use of ```SpeechToTextComposables.minimalSTT(viewModel: SpeechToTextViewModel)``` to create a ```Text``` which will show the transcribed text and a button that starts/stops the transcription. The ```SpeechToTextViewModel``` can be initiated in ```MainActivity.kt```.
+#### **Text** to Speech
+Make use of ```TextToSpeechComposables.speakText(viewModel: TextToSpeechViewModel, text : String)``` to say the string ```text```.
+<br>
+Make use of ```TextToSpeechComposables.minimalTTS(viewModel: TextToSpeechViewModel, initialString : String)``` to show a ```TextField``` which the user can enter the string to be spoken and a button that plays the speech.
+#### Read in text file
+Make use of ```readRawTextFile(context: Context, resourceId: Int)``` to read a text file in ```res/Raw``` as supplied by ```R.raw.<textFileName>```.
+### Troubleshooting
+- Make sure all dependencies are loaded correctly
+- Make sure relevant permissions are authorised on your android device
