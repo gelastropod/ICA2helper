@@ -11,7 +11,6 @@ Clone this repository and use it as a starting template!
 - ```SpeechToTextComposables.minimalSTT(viewModel: SpeechToTextViewModel)```: creates a ```Text``` which will show the transcribed text and a button that starts/stops the transcription, the ```SpeechToTextViewModel``` can be initiated in ```MainActivity.kt```
 #### **Text** to Speech
 - ```TextToSpeechComposables.speakText(viewModel: TextToSpeechViewModel, text : String)```: says the string ```text```
-<br>
 - ```TextToSpeechComposables.minimalTTS(viewModel: TextToSpeechViewModel, initialString : String)```: shows a ```TextField``` which the user can enter the string to be spoken and a button that plays the speech
 #### Read in text file
 - ```readRawTextFile(context: Context, resourceId: Int)```: reads a text file in ```res/Raw``` as supplied by ```R.raw.<textFileName>```
