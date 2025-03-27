@@ -13,6 +13,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.rememberNavController
 import com.example.ica2helper.Components.NotificationComposables
 import com.example.ica2helper.Components.PictureInPictureComposables
 import com.example.ica2helper.Components.PipHelper
@@ -21,7 +24,10 @@ import com.example.ica2helper.Components.SpeechToTextViewModel
 import com.example.ica2helper.Components.TextToSpeechComposables
 import com.example.ica2helper.Components.TextToSpeechViewModel
 import com.example.ica2helper.Components.readRawTextFile
+import com.example.ica2helper.Views.Homepage
 import com.example.ica2helper.ui.theme.ICA2helperTheme
+import androidx.navigation.compose.composable
+import java.util.UUID
 
 class MainActivity : ComponentActivity() {
     override fun onUserLeaveHint() {
@@ -43,17 +49,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ICA2helperTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Column(
-                        modifier = Modifier.padding(innerPadding)
-                    ) {
-                        //SpeechToTextComposables.minimalSTT(sttViewModel)
-                        val text = readRawTextFile(context, R.raw.test)
-                        //TextToSpeechComposables.minimalTTS(ttsViewModel, text)
-                        //NotificationComposables.minimalNotification(context, "Hi", "Test")
-                        PictureInPictureComposables.VideoScreen(R.raw.sample_video)
-                    }
-
+                val navController = rememberNavController()
+                NavHost(navController = navController, startDestination = "homepage") {
+                    composable("homepage") { Homepage.Homepage(navController) }
                 }
             }
         }
