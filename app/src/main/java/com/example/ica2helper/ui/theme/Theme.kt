@@ -46,8 +46,8 @@ fun ICA2helperTheme(
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
 
-        //darkTheme -> DarkColorScheme
-        darkTheme -> LightColorScheme
+        darkTheme -> DarkColorScheme
+        //darkTheme -> LightColorScheme
         else -> LightColorScheme
     }
 
