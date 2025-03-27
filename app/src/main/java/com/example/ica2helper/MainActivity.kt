@@ -13,6 +13,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModelProvider
+import com.example.ica2helper.Components.NotificationComposables
+import com.example.ica2helper.Components.PictureInPictureComposables
+import com.example.ica2helper.Components.PipHelper
 import com.example.ica2helper.Components.SpeechToTextComposables
 import com.example.ica2helper.Components.SpeechToTextViewModel
 import com.example.ica2helper.Components.TextToSpeechComposables
@@ -21,6 +24,16 @@ import com.example.ica2helper.Components.readRawTextFile
 import com.example.ica2helper.ui.theme.ICA2helperTheme
 
 class MainActivity : ComponentActivity() {
+    override fun onUserLeaveHint() {
+        super.onUserLeaveHint()
+        PipHelper.enterPipMode(this)
+    }
+
+    override fun onPictureInPictureModeChanged(isInPictureInPictureMode: Boolean) {
+        super.onPictureInPictureModeChanged(isInPictureInPictureMode)
+        // Handle UI visibility changes if needed
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         val context = this
         val sttViewModel = ViewModelProvider(this, SpeechToTextViewModel.Factory(this))[SpeechToTextViewModel::class.java]
@@ -36,7 +49,9 @@ class MainActivity : ComponentActivity() {
                     ) {
                         //SpeechToTextComposables.minimalSTT(sttViewModel)
                         val text = readRawTextFile(context, R.raw.test)
-                        TextToSpeechComposables.minimalTTS(ttsViewModel, text)
+                        //TextToSpeechComposables.minimalTTS(ttsViewModel, text)
+                        //NotificationComposables.minimalNotification(context, "Hi", "Test")
+                        PictureInPictureComposables.VideoScreen(R.raw.sample_video)
                     }
 
                 }

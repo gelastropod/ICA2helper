@@ -54,6 +54,12 @@ class TextToSpeechComposables() {
                 }
             }
         }
+        @Composable
+        fun speakText(viewModel: TextToSpeechViewModel, text : String) {
+            if (viewModel.isReady.value) {
+                viewModel.speak(text)
+            }
+        }
     }
 }
 

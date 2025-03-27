@@ -32,6 +32,7 @@ class SpeechToTextComposables() {
     companion object {
         @Composable
         fun minimalSTT(viewModel: SpeechToTextViewModel) {
+
             val spokenText by viewModel.spokenText
             val isListening by viewModel.isListening
 
