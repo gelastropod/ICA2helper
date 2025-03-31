@@ -17,3 +17,17 @@ Clone this repository and use it as a starting template!
 ### Troubleshooting
 - Make sure all dependencies are loaded correctly
 - Make sure relevant permissions are authorised on your android device
+
+### Extra code by gelastropod
+Basic transition code:
+```
+AnimatedVisibility(
+  visible = visible.value,
+  enter = fadeIn(),
+  exit = fadeOut()
+) {
+  Text("This text will fade in and out", modifier = Modifier.padding(8.dp))
+}
+```
+
+Put this code inside any composable function
